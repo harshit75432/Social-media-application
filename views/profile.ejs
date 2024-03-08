@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head.ejs') %>
+    <body style="background-color: white">
+        <%- include('partials/navbar.ejs') %>
+        <div class="container-fluid pb-5 full-div">
+            <div id="take-detail" class="px-0 px-sm-2 px-lg-5" data-user_id="<%= session.user_id %>">
+                <img src="/images/profile-backgroundImg.jpg" class="cover-img rounded-2"/>
+                <div class="position-relative">
+                    <img src="<%= session.profile_pic ? session.profile_pic : '/images/profile-pic.png' %>" class="profile-pic">
+                    <i class="bi bi-camera-fill choose-icon" data-bs-toggle="modal" data-bs-target="#upload"></i>
+                </div>
+                <div class="name-div">
+                    <span class="name"><%= session.first_name %> <%=session.last_name %></span>
+                    <button class="btn btn-secondary btn-sm " style="height: 30px;"><i class="bi bi-pencil me-2"></i>Edit Profile</button>
+                </div >
+                <div style="border-bottom: 1px solid lightgrey; margin-top: 45px;">
+                </div>
+
+
+                <div>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item active" role="presentation">
+                        <button class="nav-link text-secondary active" id="nav-post" data-bs-toggle="tab" data-bs-target="#posts-tab" type="button"  role="tab" style="font-size: 14px; font-weight: 500;">Posts</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                        <button class="nav-link text-secondary" id="about" data-bs-toggle="tab" data-bs-target="#about-tab" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false" style="font-size: 14px; font-weight: 500;">About</button>
+                        </li>
+                        <li class="nav-item " role="presentation">
+                        <button class="nav-link text-secondary " id="friends" data-bs-toggle="tab" data-bs-target="#friends-tab" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false" style="font-size: 14px; font-weight: 500;">Friends</button>
+                        </li>
+                        <li class="nav-item text-secondary" role="presentation">
+                        <button class="nav-link text-secondary" id="photos" data-bs-toggle="tab" data-bs-target="#photos-tab" type="button" role="tab" style="font-size: 14px; font-weight: 500;">Photos</button>
+                        </li>
+                        <li class="nav-item text-secondary" role="presentation">
+                            <button class="nav-link text-secondary" id="Videos" data-bs-toggle="tab" data-bs-target="#videos-tab" type="button" role="tab" style="font-size: 14px; font-weight: 500;">Videos</button>
+                        </li>
+                        <li class="nav-item text-secondary" role="presentation">
+                            <button class="nav-link text-secondary" id="Check-ins" data-bs-toggle="tab" data-bs-target="#check-ins-tab" type="button" role="tab" style="font-size: 14px; font-weight: 500;">Check-ins</button>
+                        </li>
+                    </ul>              
+                </div>
+
+        <div class="tab-content" id="myTabContent">
+
+            <div class="tab-pane fade active show" id="posts-tab" role="tabpanel" aria-labelledby="post-tab" tabindex="0" style="background-color: #f6f4f4; padding: 15px;">
+                
+                <div class="row" >
+                    <div class="col-lg-5">
+                        <div class="d-flex align-items-center p-2 mt-3 rounded-2 border-design" >
+                            <i class="bi bi-lock-fill fs-3 text-primary"></i>
+                            <div class="d-flex flex-column ms-3">
+                                <span style="font-weight: 500;">You've locked your profile</span>       
+                                <span class="text-primary" style="font-weight: 500;">Learn more</span>
+                            </div>
+                        </div>
+                        <div class="mt-3 p-3 border-design rounded-2" >
+                            <h5 style="font-weight: bold;">Intro</h5>
+                            <div class="text-center p-2 rounded-3 mt-3 intro-div" >
+                                Add Bio
+                            </div>
+                            <div class="text-center p-2 rounded-3 mt-3 intro-div" >
+                                Add Details
+                            </div>
+                            <div class="text-center p-2 rounded-3 mt-3 intro-div">
+                                Edit Details
+                            </div>
+                            <div class="text-center p-2 rounded-3 mt-3 intro-div">
+                                Add features
+                            </div>
+                        </div>
+                        <div class="mt-3 p-3 border-design rounded-2">
+                            <div class="d-flex justify-content-between">
+                                <h5 style="font-weight: bold;">Photos</h5>
+                                <span class="text-primary" style="font-weight: 500;">See All Photos</span>
+                            </div>
+                            
+                            <div class="row g-2 mt-2">
+                               <% if(photos.length>9){ %>
+                                <% for(let i=0;i<9;i++){ %>
+                                    <div class="col-4 col-xs-4">
+                                        <img 
+                                        class="w-100" src="<%= photos[i] %>" alt=""   height="130px" style="object-fit: cover;">              
+                        
+                                    </div>
+                                <% } %>
+                               <% }else{ %>
+                                    <% length = photos.length %>
+                                   <% for(let i=0;i<length;i++){ %>
+                                       <div class="col-4 col-xs-4">
+                                           <img 
+                                           class="w-100" src="<%= photos[i] %>" alt=""   height="130px" style="object-fit: cover;">              
+                           
+                                       </div>
+                                   <% } %>
+
+                              <% } %>
+                               
+
+                            </div>
+                        </div>
+                        <div class="mt-3 p-3 border-design rounded-2">
+                            <div class="d-flex justify-content-between">
+                                <h5 style="font-weight: bold;">Friends</h5>
+                                <span class="text-primary" style="font-weight: 500;">See All Friends</span>
+                            </div>
+
+                            <div class="row g-2 mt-2">
+                                <% if(friends_details.length>9){ %>
+                                    <% for(let i=0;i<9;i++){ %>
+                                        <div class="col-4 col-xs-4">
+                                            <div class="d-flex flex-column">
+                                                <img class="w-100 rounded-2" src="<%= friends_details[i].image ? friends_details[i].image : '/images/profile-pic.png' %>" height="130px" alt="" style="object-fit: cover;">
+                                                <span style="font-weight: 500;"><%= friends_details[i].name %></span>
+                                            </div>
+                                        </div>
+                                        <% } %>
+                               <% }else{ %>
+                                    <% length = friends_details.length %>
+                                    <% for(let i=0;i<length;i++){ %>
+                                        <div class="col-4 col-xs-4">
+                                            <div class="d-flex flex-column">
+                                                <img class="w-100 rounded-2" src="<%= friends_details[i].image ? friends_details[i].image  : '/images/profile-pic.png' %>" height="130px" alt="" style="object-fit: cover;">
+                                                <span class="mt-2" style="font-weight: 500;"><%= friends_details[i].name %></span>
+                                            </div>
+                                        </div>
+                                    <% } %>
+                                <% } %>
+                              
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="d-flex flex-column">
+
+                            <div class="d-flex flex-column p-3 mt-3 rounded-2" style="background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);">
+                                <div class="d-flex align-items-center">
+                                    <img src="<%= session.profile_pic ? session.profile_pic :  '/images/profile-pic.png' %>" alt="" width="35px" height="35px" style="border-radius: 50%; object-fit: cover;">
+                                    <span class="w-100 p-2 mx-2" data-bs-toggle="modal" data-bs-target="#post-modal" style="background-color: #e9ecef; border-radius: 30px;
+                                    ">What's on your mind?</span>
+                    
+                                </div>
+                                <div class="mt-2" style="border-bottom: 1px solid lightgray;"></div>
+                                <div class="d-flex align-items-center mt-2">
+                                    <span class="btn live-vedio w-100" style="border: none;"><i class="bi bi-camera-reels text-danger me-2 fs-4" style="-webkit-text-stroke-width: 1.9px;"></i>Live video</span>
+                                    <span class="btn photo-video  w-100 d-flex align-items-center" 
+                                    style="border: none;"><i class="bi bi-images text-success me-2 fs-4" style="-webkit-text-stroke-width: 0.8px;"></i>Photo/video</span>
+
+                                    <span class="btn life-event" ><i class="bi bi-flag-fill fs-4 me-2 text-info" style="-webkit-text-stroke-width: 0.8px;"></i>Life event</span>
+                                </div>
+                            </div>
+
+                            <div id="post-section">
+                                <% for(let i=posts.length-1;i>=0;i--){%>                 
+                                   
+                                <div id="post-div-<%= posts[i]._id %>" class="d-flex flex-column mt-3 rounded p-3" style="background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);">
+                                   <% if(posts[i].tag_friends.length > 0 && posts[i].user_id._id != session.user_id){ %>
+                                    
+                                        <div class="d-flex justify-content-between">
+                                           
+                                            <div class="d-flex align-items-center">
+                                                <img src="<%= posts[i].user_id.profile_pic ? posts[i].user_id.profile_pic : '/images/profile-pic.png' %>" alt="" width="35px" height="35px" style="border-radius: 50%; margin-right: 8px; object-fit: cover;">
+                                                <div class="d-flex">
+                                                    <a href="/profile/<%=posts[i].user_id._id %>" style="text-decoration: none; color: black;">
+                                                    <div class="d-flex flex-column">
+                                                        <span  style="font-weight: 500; font-size: 14px;"><%= posts[i].user_id.first_name %> <%= posts[i].user_id.last_name %> <span style="font-weight: 400;">with</span>  </span>
+                                                        <span style="font-size: 12px;"><%= date(posts[i].createdAt
+        ) %></span>
+                                                    </div>
+                                                </a>
+                                                <span id="tagged-people-<%= posts[i]._id %>" class="mx-1 tagged-people" data-bs-toggle="modal" data-bs-target="#other-friends-<%= posts[i]._id %>" style="font-size: 14px; font-weight: 500; cursor: pointer;"><%= posts[i].tag_friends.length%> other</span>
+
+                                                </div>
+                                       
+                                        </div>
+                                            <div class="dropdown">
+                                                <i class="bi bi-three-dots" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;"></i>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                  <li><a class="dropdown-item" >Delete</a></li>
+                                                </ul>
+                                              </div>
+                                        </div>
+                                   
+                                   <% }else{ %>
+                                    
+                                    <div class="d-flex justify-content-between">
+                                        
+                                            <div class="d-flex align-items-center">
+                                                <img src="<%= session.profile_pic ? session.profile_pic : '/images/profile-pic.png' %>" alt="" width="35px" height="35px" style="border-radius: 50%; margin-right: 8px; object-fit: cover;">
+                                                <a href="/profile/<%= session.user_id %>" style="text-decoration: none; color: black;">
+                                                <div class="d-flex flex-column">
+                                                    <span  style="font-weight: 500; font-size: 14px;"><%= session.first_name%> <%= session.last_name %></span>
+                                                    <span style="font-size: 12px;"><%= date(posts[i].createdAt
+    ) %></span>
+                                                </div>
+                                            </a>
+                                            </div>
+                                   
+                                            <div class="dropdown">
+                                                <i class="bi bi-three-dots" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;"></i>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                  <li><a id="delete-<%= posts[i]._id %>" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete-post-<%= posts[i]._id %>">Delete</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    
+                                   <% } %>
+                                      
+                                        
+                                                            
+                                        
+
+                                            <p id="paragraph-<%=i%>" class=" mt-3 title">
+                                                <%=posts[i].title %>
+                                                <span id="see-more-<%= i %>" class="see-more" style="border: none; font-weight: 600; cursor: pointer; display: none;">See more</span>
+                                            </p>
+                                        
+
+                                        <div class="row">
+                                            <% if(posts[i].post_pics.length-1 == 0){ %>
+                                                <img id="post-image-<%= 0 %>-<%=posts[i].id%>" class="post-images" src="<%= posts[i].post_pics[0] %>" alt="" height="100%" data-bs-toggle="modal" data-bs-target="#photos-modal">
+                                            <% } %>
+
+                                            <% if(posts[i].post_pics.length-1 == 1){ %>
+                                                <div  class="row gx-2" style="height: 300px;">
+                                                    <div class="col-sm-6 ">
+                                                        <img id="post-image-<%= 0 %>-<%=posts[i].id%>" class="post-images" src="<%= posts[i].post_pics[0] %>" height="100%" width="100%" data-bs-toggle="modal" data-bs-target="#photos-modal">
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <img id="post-image-<%= 1 %>-<%=posts[i].id%>" class="post-images" src="<%= posts[i].post_pics[1] %>" height="100%" alt="" width="100%" data-bs-toggle="modal" data-bs-target="#photos-modal">
+                                                    </div>
+                                                </div>
+                                            <% } %>
+
+                                            
+                                            <% if(posts[i].post_pics.length-1 == 2){%>
+                                                <div class="row g-2">
+                                                    <div class="col-sm-6">
+                                                        <img id="post-image-<%= 0 %>-<%=posts[i].id%>" class="post-images" src="<%= posts[i].post_pics[0] %>" height="100%" width="100%" data-bs-toggle="modal" data-bs-target="#photos-modal">
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="d-flex flex-column">
+                                                            <div class="mb-2">
+                                                                <img id="post-image-<%= 0 %>-<%=posts[i].id%>" class="post-images" src="<%= posts[i].post_pics[1] %>" height="50%" width="100%" alt="" data-bs-toggle="modal" data-bs-target="#photos-modal">
+                                                            </div>
+                                                            <div>
+                                                                <img id="post-image-<%= 1 %>-<%=posts[i].id%>" class="post-images" src="<%= posts[i].post_pics[2] %>" height="50%" width="100%" alt="" data-bs-toggle="modal" data-bs-target="#photos-modal">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                            <%}%>
+
+                                            <% if(posts[i].post_pics.length-1 > 2){ %>
+                                            <div class="row g-2">
+                                                <div class="col-sm-6">
+                                                    <img id="post-image-<%= 0 %>-<%=posts[i].id%>" class="post-images" src="<%= posts[i].post_pics[0] %>" height="100%" width="100%" data-bs-toggle="modal" data-bs-target="#photos-modal">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="d-flex flex-column">
+                                                        <div class="mb-2">
+                                                            <img id="post-image-<%= 1 %>-<%=posts[i].id%>" class="post-images" src="<%= posts[i].post_pics[1] %>" height="50%" width="100%" alt="" data-bs-toggle="modal" data-bs-target="#photos-modal">
+                                                        </div>
+                                                        <div style="position: relative;">
+                                                            <img id="post-image-<%= 2 %>-<%=posts[i].id%>" class="post-images" src="<%= posts[i].post_pics[2] %>" height="50%" width="100%" alt="" data-bs-toggle="modal" data-bs-target="#photos-modal">
+                                                            <div id="post-image-<%= 3 %>-<%=posts[i].id%>" class="d-flex justify-content-center align-items-center post-images" style="position : absolute; background:rgba(0, 0, 0, 0.4); bottom: 0px; right: 2px; height: 100%; width: 100%; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#photos-modal">
+                                                                <div class="d-flex justify-content-center align-items-center">
+                                                                    <div class="d-flex align-items-end">
+                                                                        <i class="bi bi-plus-lg fs-6 " style="z-index: 1; -webkit-text-stroke: 1px; color: white; margin-bottom: 7px;"></i>
+                                                                        <span style="font-size: 30px; font-weight: 600; color: white; "><%= posts[i].post_pics.length-3 %></span>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <% } %>
+                                        </div>
+                                        
+
+
+                                            
+                                            
+                                <div class="mt-3" style="border-bottom: 1px solid lightgray;"></div>                  
+                                    <div class="d-flex align-items-center">
+                            
+                                            <span id="like-<%= posts[i].id %>" class="btn w-100 d-flex align-items-center justify-content-center like-btn" data-like-status="<%= posts[i].likes.includes(session.user_id) %>">
+                                            <i id="remove-like-<%=posts[i].id%>" class="bi bi-hand-thumbs-up me-2 fs-5 " style="display:<%=posts[i].likes.includes(session.user_id) ? 'none' : 'block'  %>;"></i>
+                                            <i id="liked-<%=posts[i].id%>" class="bi bi-hand-thumbs-up-fill me-2 fs-5 text-primary" style="display:<%=posts[i].likes.includes(session.user_id) ? 'block' : 'none' ;%>"></i>Like</span>
+
+                                        
+                                        <span id="comment-btn-<%=posts[i].id%>" class="btn w-100 d-flex align-items-center justify-content-center comment-icon"><i class="bi bi-chat me-2 fs-5"></i>Comment</span>
+                                        <span class="btn w-100 d-flex align-items-center justify-content-center share-icon"><i class="bi bi-share-fill me-2 fs-5"></i>Share</span>
+                                    </div> 
+                                
+                                
+                                                    
+                                
+
+                                <div style="border-bottom: 1px solid lightgray;"></div>
+                                        
+                                        
+                                <% if(posts[i].comments.length > 2){ %>
+                                    <% for(let h=posts[i].comments.length-1;h>posts[i].comments.length-3;h--){ %>
+                                   
+                                       <div class="mt-4 d-flex align-items-center">
+                                            <img src="/images/person_pic.jpg" width="25px" height="25px" alt="" style=" border-radius: 50%; object-fit:cover">
+                                            <span id="view-mores-<%=posts[i]._id%>" class="p-2 text-start mx-2 rounded-4" style="color: black; font-weight: 400; background-color: #e9ecef;"><%=posts[i].comments[h].comment%></span>
+                                        </div>
+                               <% } %>
+                                    <span id="view-more-<%=posts[i]._id %>" class="veiw-comments btn view-more-btn" style="color: gray; font-weight: 400;" data-bs-toggle="modal" data-bs-target="#view-more">View more comments</span>
+                                <% }else if(posts[i].comments.length-1 < 2 && posts[i].comments.length-1 > 0 ){ %>
+                                             
+                                    <% for(let h=posts[i].comments.length-1;h>posts[i].comments.length-3;h--){ %>
+                                        <span id="view-more-<%=posts[i]._id%>" class="veiw-comments btn view-more-btn" style="color: gray; font-weight: 400;" data-bs-toggle="modal" data-bs-target="#view-more"></span>
+                                       <div class="mt-4 d-flex align-items-center">
+                                            <img src="/images/person_pic.jpg" width="25px" height="25px" alt="" style=" border-radius: 50%; object-fit:cover">
+                                            <span id="view-mores-<%=posts[i]._id%>" class="p-2 text-start mx-2 rounded-2" style="color: black; font-weight: 400; background-color: #e9ecef;"><%=posts[i].comments[h].comment%></span>
+                                        </div>
+                               <% } %>
+                                        <% }else{ %>
+                                            <span id="view-more-<%=posts[i]._id%>" class="veiw-comments btn view-more-btn" style="color: gray; font-weight: 400;" data-bs-toggle="modal" data-bs-target="#view-more"></span>
+                                       <% } %> %>
+                                        
+                                <form id="comment-form-<%= posts[i]._id %>" class="comment-form" action="" method="post">
+                                <div class="d-flex align-items-center mt-2">
+                                        <img src="<%= session.profile_pic ? session.profile_pic :  '/images/profile-pic.png' %>" alt="" width="25px" height="25px" style="border-radius: 50%; object-fit: cover;">
+                                        <input id="comment-input-<%=posts[i].id%>" class="form-control mx-2 comment-text p-3" placeholder="Write a comment..."  type="text" required style="border-radius: 20px; background-color: #e9ecef; height: 26px;">
+                                        <button id="comment-btn-<%=posts[i].id %>" class="btn" type="submit"><i class="bi bi-send"></i></button>
+                                    </div>
+                                </form>
+                    
+                                </div>
+                                <div id="delete-post-<%= posts[i]._id %>" class="modal" tabindex="-1">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h5 class="modal-title">Delete Post</h5>
+                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                          <p>Are you sure you want to delete this post?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button id="delete-post-close-<%= posts[i]._id %>" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                          <button id="delete-post-<%= posts[i]._id %>" type="button" class="btn btn-danger delete-post">Delete</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div id="other-friends-<%= posts[i]._id %>" class="modal" tabindex="-1">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          
+                                          <h5 class="modal-title" style="font-weight: bold;">Peoples</h5>
+                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div id="peoples-section-<%=posts[i]._id %>"  class="modal-body">
+                                          
+                                        </div>
+                                      
+                                      </div>
+                                    </div>
+                                  </div>
+                                <% } %>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade " id="friends-tab" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                <div class="p-2 container mt-3">
+                    <div class="d-flex flex-column rounded-2" style="background-color: white;">
+                        <div class="d-flex justify-content-between p-3">
+                            <h4>Friends</h4>
+                            <div>  
+                                <div class="d-flex align-items-center">
+                                    
+                                        <i class="bi bi-search p-1 d-flex align-items-center search-icon" style="background-color: 	#f6f4f4; border-radius: 20px; height: 40px;"><input class="form-control  " placeholder="Search" type="search" style=" background-color: 	#f6f4f4; border: 0; width: 100px;" >   </i>
+                                                                
+                                    
+                                    
+                                    <span class="text-primary mx-3 me-4 find-requests" style="font-size: 14px; font-weight: 500;">Find requests</span>
+                                    <span class="text-primary find-friends" style="font-size: 14px; font-weight: 500;">Find friends</span>
+                                    <div class="dropdown d-flex align-items-center">
+                                            
+                                        <i class="bi bi-list p-1 rounded-2 drop-menu"  data-bs-toggle="dropdown" aria-expanded="false"></i>    
+                                        <ul class="dropdown-menu p-2">
+                                        <li><span class="text-primary" style="font-size: 14px; font-weight: 500;">Find requests</span></li>
+                                        <li> <span class="text-primary" style="font-size: 14px; font-weight: 500;">Find friends</span></li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div>
+                                    </div>
+                                </div>  
+                            </div>
+
+                        </div>
+                        <div class="tab-container">
+                            <ul class="nav nav-tabs" id="myTabFriend" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active text-secondary" id="all-friend" data-bs-toggle="tab" data-bs-target="#all-friend-tab" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true" style="font-size: 14px; font-weight: 500;">All Friends</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link text-secondary" id="request-tab" data-bs-toggle="tab" data-bs-target="#friend-request-tab" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false" style="font-size: 14px; font-weight: 500;">Friend requests</button>
+                                </li>
+                                <li class="nav-item text-secondary" role="presentation">
+                                    <button class="nav-link text-secondary" id="friend-suggestions" data-bs-toggle="tab" data-bs-target="#friend-suggestion-tab" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false" style="font-size: 14px; font-weight: 500;">Friends Suggestion</button>
+                                </li>
+                                
+                                </ul>
+                                <div class="tab-content mt-3" id="friends">
+                                <div class="tab-pane fade show active" id="all-friend-tab" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                                    <div id="friend-section-tab" class="row">
+                                            <%  for(let i=0;i<all_friends.length;i++){ %>                                               
+                                            <div class="col-md-6 d-flex justify-content-between p-3 rounded border-design" style="border: 1px solid rgb(246, 244, 244);">
+                                                    <div>
+                                                        <img src="<%= all_friends[i].profile_pic ? all_friends[i].profile_pic : '/images/profile-pic.png' %>" width="100px" height="90px" alt="" style="border-radius: 5px;object-fit: cover;">
+                                                        <span class="mx-2" style="font-size: 20px; font-weight: 500;"><%= all_friends[i].first_name %> <%= all_friends[i].second_name %></span>
+                                                    </div>
+                                                
+                                                    
+                                                    <div class="dropdown d-flex align-items-center">
+                                                        
+                                                        <i class="d-flex align-items-center justify-content-end bi bi-three-dots " data-bs-toggle="dropdown" aria-expanded="false"></i>     
+                                                        <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="#"><i class="bi bi-star me-2"></i>Favourites</a></li>
+                                                        <li><a class="dropdown-item" href="#"> <i class="bi bi-person-fill-gear me-2"></i>Edit Friend List</a></li>
+                                                        <li><a class="dropdown-item" href="#"><i class="bi bi-file-x-fill me-2"></i>Unfollow</a></li>
+                                                        <li><a class="dropdown-item" href="#"><i class="bi bi-person-x me-2"></i>Unfriend</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    
+                                            </div>
+                                            <%  }  %>
+                                        
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="friend-request-tab" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                                    <div id="request-section" class="row g-2">
+
+                                            
+                                                    
+                                                    
+                                    </div>                                            
+                                </div>
+                            </div>
+                                <div class="tab-pane fade" id="friend-suggestion-tab" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+                                    <div id="suggestion-section" class="row g-2">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+            </div>  
+        </div>
+       
+        <div class="modal" id="upload" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Upload</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="upload-form" method="post">
+                            <img id="upload-img" src="<%= session.profile_pic ? session.profile_pic :  '/images/profile-pic.png'%>" width="150px" height="150px" style="border-radius: 50%; margin-left: 35%; object-fit: cover; margin-bottom: 20px;">
+                        
+                            <span id="upload-a-new-photo"  class="btn btn-primary w-100 mb-3">Upload a New Photo</span>
+                            <input id="file" type="file" style="display: none;">
+                            <button id="remove-btn" type="button" class="btn btn-danger w-100 mb-3" >Remove</button>
+                            <div class="d-flex justify-content-end">
+                                <button id="update-btn" type="submit" class="btn btn-success" style="display: none;">Update</button>
+                            </div>
+                        </form>
+                    </div>    
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="post-modal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+              <div class="modal-content" style="position: relative;">
+                <div class="modal-header">
+                    <h4 class="modal-title " style="margin-left: 170px; font-weight: bold;">Create post</h4>
+                    <button id="close-btn" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" >
+                    <form id="upload-post" method="post" style="position: relative;">
+                        <div id="user-image" style="display:block;">
+                            <div  class="d-flex align-items-center" >
+                                <img  src="/images/person_pic.jpg" alt="" height="30px" width="30px" style="border-radius: 50%; ">
+                         
+                                <span class="mx-2 mt-2" style="font-weight: bold;"><%= session.first_name %> <%=session.last_name %></span>
+                            </div>
+                        </div>
+                       <textarea id="text-area" class="form-control  mt-2 " placeholder="What's on your mind?" required style="border: none; font-size: 25px;"></textarea>
+                       <textarea id="text-photo-post" class="form-control  mt-2 " placeholder="What's on your mind?" style="border: none; font-size: 25px; display:none;"></textarea>    
+
+                    <div id="photo-section" class="border mt-3 p-2 rounded" style=" display: none; " >
+                     <div id="photo-sections" style="max-height: 250px; overflow-y: scroll;">
+                         
+                     </div>
+                    
+
+                         <div id="post-image" class="p-3 photo-add" style="height: 100%; position: relative;">
+                             <span id="cross-icon" class="d-flex justify-content-end"><i id="cross"  class="bi bi-x-lg p-2 border d-flex align-items-center justify-content-center" style="background-color: white; border-radius: 50%; cursor: pointer;"></i></span>
+                             <div  class="d-flex flex-column align-items-center justify-content-center fs-4">
+                                 <div id="upload-icon-div">
+                                         <i id="upload-icon" class="bi bi-images p-2 d-flex align-items-center justify-content-center" style="border-radius: 50%; background-color: #e9ecef; cursor: pointer;"></i>
+                                 </div>
+                                 <input id="select-photo" type="file" multiple="multiple" style="display:none;" >
+                                 <span id="span-text" class="f-6 text-black">Add photos/videos</span>
+                             </div>
+                         </div>
+                    </div>
+                    <div id="tag-friend" style="display:none">
+                        <div class="d-flex flex-column">
+                            <i id="back-btn"  class="bi bi-arrow-left" style="-webkit-text-stroke-width: 1px; cursor: pointer;"> Back</i>
+                            <label class="mt-2 mb-2" for="" style="font-weight: 500; font-size: 18px;">Tag friends:</label>
+                            <select id="friends" class="form-select" aria-label="Default select example" multiple="multiple" placeholder="Please select your friends">             
+         
+                                <% for(let i=0;i<friends_details.length;i++){ %>
+                                   
+                                    <option value="<%=friends_details[i].friend_id%>"><%= friends_details[i].name %></option>
+                               <% } %>    
+                            </select>
+                            <span class="mt-3" style="font-weight: 500; color: gray;">Suggestions</span>
+                            <div style="height: 200px; overflow-y: scroll;">
+                            <% for(let i=0;i<friends_details.length;i++){ %>
+                                    <div class="d-flex mt-2">
+                                        <img src="<%= friends_details[i].image ? friends_details[i].image : '/images/profile-pic.png' %>" width="30px" height="30px" style="object-fit: cover; border-radius: 50%;" alt="">
+                                        <span class="ms-2" style="font-weight: 500;"><%= friends_details[i].name %></span>
+                                    </div>
+                                    <% } %>
+                                </div>
+                        </div>
+                    </div>
+                        <div id="icons-div" style="display: block;">
+    
+                            <div   class="mt-5 d-flex align-items-center justify-content-between rounded p-3 " style="border: 1px solid lightgray;">
+                                <span style="font-weight: bold;">Add to your post</span>
+                                <div class="d-flex align-items-center">
+                                    <i id="image-section" class="bi bi-images text-success fs-4 me-3 image-icon" style="cursor: pointer;"></i>
+                                    <i id="tag-icon" class="bi bi-person-fill text-info me-2 fs-3 person-icon" style="cursor: pointer;"></i>
+                                    <i class="bi bi-geo-alt-fill text-danger fs-4 location-icon" style="cursor: pointer;"></i>
+                                    
+                                </div>
+                            
+                            </div>
+                        </div>
+                   
+                
+                    
+                        <button id="post-btn" type="submit" class="btn w-100 mt-3" disabled style="background-color: #e9ecef; border: none;position: sticky; display: block;">Post</button>
+                  
+                    
+                    </form>
+
+                </div>
+                
+              </div>
+            </div>
+        </div>
+
+        <div class="modal" id="view-more" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div id="modal-post-section">
+                            
+                        </div>
+                    </div>      
+                </div>   
+            </div>
+        </div>
+
+        <div id="photos-modal" class="modal" tabindex="-1" style="background-color: rgba(0, 0, 0, 0.4);">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                <div class="modal-content bg-dark">
+                    <div class="d-flex justify-content-end modal-header" style="border: 0;">
+                        <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close" ></button>
+                    </div>
+                
+                    
+                    
+                    <div class="modal-body">
+                        <div id="photos-section">
+
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+        <div id="tag-friends" class="modal" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Modal title</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/js/multi-select-tag.js"></script>
+          <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+        <script src="/js/profile.js"></script>
+        <script src="/js/notification.js"></script>
+        <script src="/js/extraHome.js"></script>
+        <script src="/js/Suggestion.js"></script>
+        <%- include('partials/scripts.ejs') %>
+    </body>
+</html>

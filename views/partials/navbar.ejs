@@ -1,0 +1,106 @@
+<div class="d-flex justify-content-between mb-2" style="background-color: white; box-shadow: 0px 15px 10px -15px #b6b3b3;position: fixed; width: 100%; z-index: 3;">
+  <nav class="navbar navbar-expand-lg  py-1 " style="width: 100%;" >
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+        <img src="/images/logo.png" style="height: 45px;">
+      </a>
+      <div>
+          
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation" style="margin-right: 130px;">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText" >
+        <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0">
+          <li class="nav-item " style="margin-right: 100px;">
+            <a class="nav-link active fs-5" aria-current="page" href="/"><i class="bi bi-house"  style="-webkit-text-stroke-width: 0.5px; color: gray;"></i></a>
+          </li>
+          <li class="nav-item " style="margin-right: 100px">
+            <a class="nav-link fs-5" href="#"><i class="bi bi-play-btn" style="-webkit-text-stroke-width: 0.5px; color: gray;"></i></a>
+          </li>
+          <li class="nav-item " style="margin-right: 100px">
+            <a class="nav-link fs-5" href="#"><i class="bi bi-people"  style="-webkit-text-stroke-width: 0.5px; color: gray;"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-4" href="#"><i class="bi bi-controller"  style="-webkit-text-stroke-width: 0.5px; color: gray;"></i></a>
+          </li>
+        </ul>
+      
+      </div>
+    </div>
+  </nav>
+  <span id="user_id" class="navbar-text d-flex justify-content-center align-items-center" data-user_id="<%= session._id %>" style="position: absolute; right: 2px; top: 2px;">
+   
+    <div class="dropdown">
+ 
+        <i id="message-icon" class="bi bi-messenger navbar-icon mx-2" data-bs-toggle="dropdown" aria-expanded="false" data-user_id="<%= session._id %>"></i>
+   
+      <ul class="dropdown-menu message-div">
+        
+          <div class="d-flex flex-column p-4" style="width: 350px; border-radius: 15px;">
+              <div class="d-flex justify-content-between">
+                  <h5>Chats</h5>
+                  <div>
+                      <i class="bi bi-three-dots"></i>
+                      <a href="/messengerhome" ><i class="bi bi-arrows-fullscreen ms-3" style="color: black;"></i></a>
+                      <i class="bi bi-pencil-square ms-3"></i>
+                  </div>
+        
+                 
+              </div>
+              <div class="d-flex p-2 px-3" style="background-color: #f6f4f4; border-radius: 20px;">
+                  <i class="bi bi-search"></i>
+                  <input class="ms-2" type="text" placeholder="Search Messenger" style="border: none; outline: none;background-color: #f6f4f4; font-size: 13px;">
+              </div>
+        
+              <div class="mt-2 p-2 px-3 d-flex justify-content-center align-items-center" style="background-color:  #f6f4f4; width: 60px; border-radius: 20px;">
+                  <span style="color:rgb(151, 46, 249); font-weight: 500;">Inbox</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center  mt-2">
+              
+                      <img src="https://png.pngtree.com/png-clipart/20190614/original/pngtree-vector-message-icon-png-image_3782250.jpg" width="50px" height="50px" alt="" style=" object-fit: cover; ">
+                 
+                  <div class="d-flex flex-column">
+                      <span style="font-weight: 500;">New message request</span>
+                      <span style="font-size: 12px;">from name and 1 more</span>
+                  </div>
+                  <i class="bi bi-chevron-right"></i>
+              </div>
+              <div class="mt-2" style="height: 350px; overflow-y: scroll;">
+                  <% for(let i=0;i<friends_details.length;i++){ %>
+                     <a href="/messenger/<%= friends_details[i].friend_id %>" style=" text-decoration: none; color: black;">
+                      <div class="friend-message mt-2 p-1" class="d-flex align-items-center mt-2">
+                          <img src="<%= friends_details[i].image ? friends_details[i].image : '/images/profile-pic.png' %>" width="50px" height="50px" style="border-radius: 50%;" alt="">
+                          <span class="ms-4" style="font-weight: 500;"><%= friends_details[i].name %></span>
+                      </div>
+                     </a>
+                      <% } %>
+              </div>
+          
+          <div style="border-bottom: 1px solid lightgray;"></div>
+          <a href="/messengerhome" class="text-center mt-2" style="color: blue; text-decoration: none; font-weight: 500;">See all in messenger</a>
+          </div>
+        
+      </ul>
+    </div>
+    
+    <i id="notification-btn" class="bi bi-bell-fill navbar-icon me-2">
+      <span id="total-notification" class="position-absolute top-5 start-80 translate-middle badge rounded-pill bg-danger" style="font-size: 9px;">
+        
+      </span>
+    </i>
+    <div class="dropdown">   
+        <img class="dropdown-toggle me-2" data-bs-toggle="dropdown" aria-expanded="false" src="<%= session.profile_pic ? session.profile_pic : '/images/profile-pic.png' %>" style="height: 38px;width: 38px;border-radius: 50%; object-fit: cover; cursor: pointer;">
+      
+      <ul class="dropdown-menu mt-3 me-2" style="right: 0; left: auto;">
+        <li><a class="dropdown-item" href="/profile">Profile</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="/logout">Logout</a></li>
+      </ul>
+    </div>
+  </span>
+</div>
+
+<div id="notification-details" style="display: none;">
+
+</div>

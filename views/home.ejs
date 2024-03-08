@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head.ejs') %>
+
+    <body style="background-color: #f6f4f4" id="body">
+        <%- include('partials/navbar.ejs') %>
+        <div id="take-detail" class="overflow-x-hidden" data-user_id="<%= session.user_id %>">
+                       
+            <div class="container p-2 px-4 mt-2 left-fixed-div">
+
+                <div style="overflow-y: scroll; height: 550px;">
+                    <div class="d-flex align-items-center left-hover">
+                        <img src="/images/logo.png" width="35px"  alt="">
+                        <span class="mx-3" style="font-weight: 500;">Harshit Saxena</span>
+                    </div>
+                    <div class="d-flex align-items-center mt-3 left-hover">
+                        <img src="https://static.vecteezy.com/system/resources/thumbnails/010/157/501/small_2x/people-icon-sign-symbol-design-free-png.png" width="30px"  alt="">
+                        <span class="mx-3" style="font-weight: 500;">Friends</span>
+                    </div>
+                    <div class="d-flex align-items-center mt-3 left-hover">
+                        <img src="https://cdn0.iconfinder.com/data/icons/facebook-feature-outline/32/facebook-18-512.png" width="35px"  alt="">
+                        <span class="mx-3" style="font-weight: 500;">Memories</span>
+                    </div>
+                    <div class="d-flex align-items-center mt-3 left-hover">
+                        <img src="https://cdn-icons-png.flaticon.com/512/7856/7856134.png" width="35px"  alt="">
+                        <span class="mx-3" style="font-weight: 500;">Saved</span>
+                    </div>
+                    <div class="d-flex align-items-center mt-3 left-hover">
+                        <img src="https://static.vecteezy.com/system/resources/thumbnails/022/597/384/small/3d-chatting-social-media-png.png" width="40px"  alt="">
+                        <span class="mx-3" style="font-weight: 500;">Groups</span>
+                        
+                    </div>
+                    <div class="d-flex align-items-center mt-3 left-hover">
+                        <img src="https://www.freeiconspng.com/thumbs/video-icon/video-icon-16.png" width="35px"  alt="">
+                        <span class="mx-3" style="font-weight: 500;">Video</span>
+                        
+                    </div>
+                    <div class="d-flex align-items-center mt-3 left-hover">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1280/1280094.png" width="30px"  alt="">
+                        <span class="mx-3" style="font-weight: 500;">Marketplace</span>
+                        
+                    </div>
+                  
+                    <div class="d-flex align-items-center mt-3 left-hover">
+                        <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/status-10206544-8294460.png" width="40px"  alt="">
+                        <span class="mx-2" style="font-weight: 500;">Feeds</span>
+                        
+                    </div>
+                    <div class="d-flex align-items-center mt-3 left-hover">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl7jHvPvLnV9kCQ7nWAc6RZAxDT6RBhfdIEw&usqp=CAU" width="30px"  alt="">
+                        <span class="mx-3" style="font-weight: 500;">Events</span>
+                        
+                    </div>
+                    <div class="d-flex align-items-center mt-3 left-hover">
+                        <img src="https://cdn-icons-png.freepik.com/512/404/404621.png" width="30px"  alt="">
+                        <span class="mx-3" style="font-weight: 500;">Adds Manager</span>
+                        
+                    </div>
+                    <div class="d-flex align-items-center mt-3 left-hover">
+                        <img src="https://cdn-icons-png.flaticon.com/512/6772/6772262.png" width="30px"  alt="">
+                        <span class="mx-3" style="font-weight: 500;">Blood Donations</span>
+                        
+                    </div>
+                    <div class="d-flex align-items-center mt-3 left-hover">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzFWErfZNFYFhMjWrMY6U8Y6TElY1x-22AaA&usqp=CAU" width="40px"  alt="">
+                        <span class="mx-2" style="font-weight: 500;">Climate Science Center</span>
+                        
+                    </div>
+                    <div class="d-flex align-items-center mt-3 left-hover">
+                        <img src="https://i.pinimg.com/originals/47/83/70/47837075b18d0e49cf5114a6aaf332cf.png" width="30px"  alt="">
+                        <span class="mx-3" style="font-weight: 500;">Facebook pay</span>
+                        
+                    </div>
+                    <div class="d-flex align-items-center mt-3 left-hover">
+                        <img src="https://img.lovepik.com/element/45006/8187.png_300.png" width="30px"  alt="">
+                        <span class="mx-3" style="font-weight: 500;">Fundraisers</span>
+                        
+                    </div>
+                    <div class="d-flex align-items-center mt-3 left-hover">
+                        <img src="https://toppng.com/uploads/preview/gaminggame-icon-video-games-icon-11553438228yzhcz9vwvj.png" width="30px"  alt="">
+                        <span class="mx-3" style="font-weight: 500;">Gaming Video</span>
+                        
+                    </div>
+                    <div class="d-flex align-items-center mt-3 left-hover">
+                        <img src="https://www.pngimages.in/uploads/png-compressd/2023/February-2023/purple_message_icon_Transparent_Background.png" width="30px"  alt="">
+                        <span class="mx-3" style="font-weight: 500;">Messenger</span>
+                        
+                    </div>
+                    <div class="d-flex align-items-center mt-3 left-hover">
+                        <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3JtNTMzYmF0Y2gyLWdyYWRpZW50LTIyLnBuZw.png" width="30px"  alt="">
+                        <span class="mx-3" style="font-weight: 500;">Messenger Kids</span>
+                        
+                    </div>
+                    <div class="d-flex align-items-center mt-3 left-hover ">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1397/1397892.png" width="30px"  alt="">
+                        <span class="mx-3" style="font-weight: 500;">Pages</span>
+                        
+                    </div>
+                    <div class="d-flex align-items-center mt-3 left-hover">
+                        <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/gaming-38-903801.png" width="30px"  alt="">
+                        <span class="mx-3" style="font-weight: 500;">Play games</span>
+                        
+                    </div>
+                    <div class="d-flex align-items-center mt-3 left-hover">
+                        <img src="https://www.pngkey.com/png/full/327-3270056_advertising-icon-png-advertising.png" width="30px"  alt="">
+                        <span class="mx-3" style="font-weight: 500;">Recent ad activity</span>
+                        
+                    </div>
+                </div>
+                <div id="notification"></div>
+                <div class="mt-2">
+                    <h5 style="color: gray; font-size: 20px;">Your shortcuts</h5>
+                    <div class="d-flex align-items-center mt-3 left-hover">
+                        <img src="https://freepngimg.com/thumb/8_ball_pool/27170-9-8-ball-pool-file.png" width="30px" alt="">
+                        <span class="mx-3" style="font-weight: 500;">8 Ball Pool</span>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="mid-div">
+                
+                    <div class="d-flex flex-column p-3 mt-3 rounded-2 border-design">
+                        <div class="d-flex align-items-center">
+                            <img src="<%= session.profile_pic ? session.profile_pic :  '/images/profile-pic.png' %>" alt="" width="35px" height="35px" style="border-radius: 50%; 
+                             object-fit: cover;">
+                            <span class="w-100 p-2 mx-2" data-bs-toggle="modal" data-bs-target="#post-modal" style="background-color: #e9ecef; border-radius: 30px;
+                            ">What's on your mind?</span>
+            
+                        </div>
+                        <div class="mt-2" style="border-bottom: 1px solid lightgray;"></div>
+                        <div class="d-flex align-items-center mt-2">
+                            <span class="btn live-vedio w-100" style="border: none;"><i class="bi bi-camera-reels text-danger me-2 fs-4" style="-webkit-text-stroke-width: 1.9px;"></i>Live video</span>
+                            <span class="btn photo-video  w-100 d-flex align-items-center" 
+                            style="border: none;"><i class="bi bi-images text-success me-2 fs-4" style="-webkit-text-stroke-width: 0.8px;"></i>Photo/video</span>
+
+                            <span class="btn life-event" ><i class="bi bi-flag-fill fs-4 me-2 text-info" style="-webkit-text-stroke-width: 0.8px;"></i>Life event</span>
+                        </div>
+                    </div> 
+            
+                <div id="post-section">
+                  <% if(posts.length>0){ %>
+                    <% for(let i=0;i<posts.length;i++){%>
+                    <div id="post-div-<%= i %>" class="d-flex flex-column mt-3 rounded p-3 border-design">
+                        
+                            <div class="d-flex justify-content-between">
+                                <div class="d-flex">
+                                    <img src="<%= post_details[i].pic  ? post_details[i].pic : '/images/profile-pic.png' %>" alt="" width="35px" height="35px" style="border-radius: 50%; margin-right: 8px; object-fit: cover;">
+                                    <a href="/profile/<%= posts[i].user_id._id %>" style="text-decoration: none; color: black;">
+                                    <div class="d-flex flex-column ms-2">
+                                            <span  style="font-weight: 500; font-size: 14px;"><%= post_details[i].name %></span>
+                                            <span style="font-size: 13px;"><%= date(posts[i].createdAt)  %></span>
+                                        </div>
+                                    </a>
+                                </div>
+                             
+                                    <i class="bi bi-three-dots" style="cursor: pointer;"></i>
+                                   
+                                
+                            </div>
+                           
+                                <p id="paragraph-<%=i%>" class=" mt-3 title">
+                                    <%=posts[i].title %>
+                                    <span id="see-more-<%= i %>" class="see-more" style="border: none; font-weight: 600; cursor: pointer; display: none;">See more</span>
+                                </p>
+                            
+
+                            <div class="row">
+                                <% if(posts[i].post_pics.length-1 == 0){ %>
+                                   <img id="post-image-<%= 0 %>-<%=posts[i].id%>" class="post-images" src="<%= posts[i].post_pics[0] %>" alt="" height="100%" data-bs-toggle="modal" data-bs-target="#photos-modal">
+                                <% } %>
+
+                                <% if(posts[i].post_pics.length-1 == 1){ %>
+                                   <div  class="row gx-2" style="height: 300px;">
+                                       <div class="col-sm-6 ">
+                                           <img id="post-image-<%= 0 %>-<%=posts[i].id%>" class="post-images" src="<%= posts[i].post_pics[0] %>" height="100%" width="100%" data-bs-toggle="modal" data-bs-target="#photos-modal">
+                                       </div>
+                                       <div class="col-sm-6">
+                                           <img id="post-image-<%= 1 %>-<%=posts[i].id%>" class="post-images" src="<%= posts[i].post_pics[1] %>" height="100%" alt="" width="100%" data-bs-toggle="modal" data-bs-target="#photos-modal">
+                                       </div>
+                                   </div>
+                                <% } %>
+
+                                
+                                <% if(posts[i].post_pics.length-1 == 2){%>
+                                    <div class="row g-2">
+                                        <div class="col-sm-6">
+                                            <img id="post-image-<%= 0 %>-<%=posts[i].id%>" class="post-images" src="<%= posts[i].post_pics[0] %>" height="100%" width="100%" data-bs-toggle="modal" data-bs-target="#photos-modal">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="d-flex flex-column">
+                                                <div class="mb-2">
+                                                    <img id="post-image-<%= 0 %>-<%=posts[i].id%>" class="post-images" src="<%= posts[i].post_pics[1] %>" height="50%" width="100%" alt="" data-bs-toggle="modal" data-bs-target="#photos-modal">
+                                                </div>
+                                                <div>
+                                                    <img id="post-image-<%= 1 %>-<%=posts[i].id%>" class="post-images" src="<%= posts[i].post_pics[2] %>" height="50%" width="100%" alt="" data-bs-toggle="modal" data-bs-target="#photos-modal">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                               <%}%>
+
+                               <% if(posts[i].post_pics.length-1 > 2){ %>
+                                <div class="row g-2">
+                                    <div class="col-sm-6">
+                                        <img id="post-image-<%= 0 %>-<%=posts[i].id%>" class="post-images" src="<%= posts[i].post_pics[0] %>" height="100%" width="100%" data-bs-toggle="modal" data-bs-target="#photos-modal">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="d-flex flex-column">
+                                            <div class="mb-2">
+                                                <img id="post-image-<%= 1 %>-<%=posts[i].id%>" class="post-images" src="<%= posts[i].post_pics[1] %>" height="50%" width="100%" alt="" data-bs-toggle="modal" data-bs-target="#photos-modal">
+                                            </div>
+                                            <div style="position: relative;">
+                                                <img id="post-image-<%= 2 %>-<%=posts[i].id%>" class="post-images" src="<%= posts[i].post_pics[2] %>" height="50%" width="100%" alt="" data-bs-toggle="modal" data-bs-target="#photos-modal">
+                                                <div id="post-image-<%= 3 %>-<%=posts[i].id%>" class="d-flex justify-content-center align-items-center post-images" style="position : absolute; background:rgba(0, 0, 0, 0.4); bottom: 0px; right: 2px; height: 100%; width: 100%; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#photos-modal">
+                                                    <div class="d-flex justify-content-center align-items-center">
+                                                        <div class="d-flex align-items-end">
+                                                            <i class="bi bi-plus-lg fs-6 " style="z-index: 1; -webkit-text-stroke: 1px; color: white; margin-bottom: 7px;"></i>
+                                                            <span style="font-size: 30px; font-weight: 600; color: white; "><%= posts[i].post_pics.length-3 %></span>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                               <% } %>
+                            </div>
+                      
+                    <div class="mt-3" style="border-bottom: 1px solid lightgray;"></div>                  
+                        <div class="d-flex align-items-center">
+                
+                               <span id="like-<%= posts[i].id %>-<%= post_details[i].user_id %>" class="btn w-100 d-flex align-items-center justify-content-center like-btn" data-like-status="<%= posts[i].likes.includes(session.user_id) %>">
+                                <i id="remove-like-<%=posts[i].id%>" class="bi bi-hand-thumbs-up me-2 fs-5 " style="display:<%=posts[i].likes.includes(session.user_id) ? 'none' : 'block'  %>;"></i>
+                                <i id="liked-<%=posts[i].id%>" class="bi bi-hand-thumbs-up-fill me-2 fs-5 text-primary" style="display:<%=posts[i].likes.includes(session.user_id) ? 'block' : 'none' ;%>"></i>Like</span>
+
+                          
+                            <span id="comment-btn-<%=posts[i].id%>" class="btn w-100 d-flex align-items-center justify-content-center comment-icon"><i class="bi bi-chat me-2 fs-5"></i>Comment</span>
+                            <span class="btn w-100 d-flex align-items-center justify-content-center share-icon" data-bs-toggle="modal" data-bs-target="#shareModal-<%=i%>"><i class="bi bi-share-fill me-2 fs-5"></i>Share</span>
+                            <div id="shareModal-<%=i%>" class="modal" tabindex="-1">
+                                <div class="modal-dialog modal-dialog-centered">
+                                  <div class="modal-content">
+                                  
+                                    <div class="modal-body">
+                                        <div class="d-flex justify-content-between">
+                                            <h5 class="modal-title">Share</h5>
+                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                      <div class="d-flex justify-content-between mt-4 px-4">
+                                        <a href="https://www.whatsapp.com/"><i class="bi bi-whatsapp fs-3 text-success"></i></a> 
+                                        <a href=""><i class="bi bi-messenger fs-3 text-primary"></i></a> 
+                                        <a href=""><i class="bi bi-people-fill fs-3 text-secondary"></i></a> 
+                                        <a href=""><i class="bi bi-pencil-square fs-3"></i></a>  
+                                      </div>
+                                    </div>
+                                
+                                  </div>
+                                </div>
+                              </div>  
+                        </div> 
+                    
+                        <div style="border-bottom: 1px solid lightgray;"></div>
+                            
+                            
+                            <% if(posts[i].comments.length > 2){ %>
+                                <% for(let h=posts[i].comments.length-1;h>posts[i].comments.length-3;h--){ %>
+                               
+                                   <div class="mt-4 d-flex align-items-center">
+                                        <img src="/images/person_pic.jpg" width="25px" height="25px" alt="" style=" border-radius: 50%; object-fit:cover">
+                                        <span id="view-mores-<%=posts[i].id%>" class="p-2 text-start mx-2 rounded-4" style="color: black; font-weight: 400; background-color: #e9ecef;"><%=posts[i].comments[h].comment%></span>
+                                    </div>
+                                    <span id="view-more-<%=posts[i]._id%>" class="veiw-comments btn view-more-btn" style="color: gray; font-weight: 400;" data-bs-toggle="modal" data-bs-target="#view-more">View more comments</span>
+                           <% } %>
+                            <% }else if(posts[i].comments.length <= 2 && posts[i].comments.length- 1 > 0 ){ %>
+                                         
+                                <% for(let h=posts[i].comments.length-1;h>posts[i].comments.length-3;h--){ %>
+                                    <span id="view-more-<%=posts[i]._id%>" class="veiw-comments btn view-more-btn" style="color: gray; font-weight: 400;" data-bs-toggle="modal" data-bs-target="#view-more"></span>
+                                   <div class="mt-4 d-flex align-items-center">
+                                        <img src="/images/person_pic.jpg" width="25px" height="25px" alt="" style=" border-radius: 50%; object-fit:cover">
+                                        <span id="view-mores-<%=posts[i]._id%>" class="p-2 text-start mx-2 rounded-2" style="color: black; font-weight: 400; background-color: #e9ecef;"><%=posts[i].comments[h].comment%></span>
+                                    </div>
+                           <% } %>
+                          
+                           
+                                    <% }else{ %>
+                                        <span id="view-more-<%=posts[i]._id%>" class="veiw-comments btn view-more-btn" style="color: gray; font-weight: 400;" data-bs-toggle="modal" data-bs-target="#view-more"></span>
+                                   <% } %>
+                            
+                        <form id="comment-form-<%= posts[i].id %>" class="comment-form" action="" method="post">
+                            <div class="d-flex align-items-center mt-2">
+                                    <img src="<%= session.profile_pic ? session.profile_pic :  '/images/profile-pic.png' %>" alt="" width="25px" height="25px" style="border-radius: 50%; ">
+                                    <input id="comment-input-<%=posts[i].id%>" class="form-control mx-2 comment-text p-3" placeholder="Write a comment..."  type="text" required style="border-radius: 20px; background-color: #e9ecef; height: 26px;">
+                                    <button id="comment-btn-<%=posts[i].id %>" class="btn" type="submit"><i class="bi bi-send"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                    <%}%>
+                  <% } %>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="modal" id="post-modal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+              <div class="modal-content" style="position: relative;">
+                <div class="modal-header">
+                  <h4 id="Header-title" class="modal-title " style="margin-left: 170px; font-weight: bold;">Create post</h4>
+                  <button id="close-btn" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-3" >
+                    <form id="upload-post" method="post" style="position: relative;">
+                        <div id="user-image" style="display:block;">
+                            <div  class="d-flex align-items-center" >
+                                <img  src="/images/person_pic.jpg" alt="" height="30px" width="30px" style="border-radius: 50%; ">
+                         
+                                <span class="mx-2 mt-2" style="font-weight: bold;"><%= session.first_name %> <%=session.last_name %></span>
+                            </div>
+                        </div>
+                       <textarea id="text-area" class="form-control  mt-2 " placeholder="What's on your mind?" required style="border: none; font-size: 25px;"></textarea>
+                       <textarea id="text-photo-post" class="form-control  mt-2 " placeholder="What's on your mind?" style="border: none; font-size: 25px; display:none;"></textarea>    
+
+                    <div id="photo-section" class="border mt-3 p-2 rounded" style=" display: none; " >
+                     <div id="photo-sections" style="max-height: 250px; overflow-y: scroll;">
+                         
+                     </div>
+                    
+
+                         <div id="post-image" class="p-3 photo-add" style="height: 100%; position: relative;">
+                             <span id="cross-icon" class="d-flex justify-content-end"><i id="cross"  class="bi bi-x-lg p-2 border d-flex align-items-center justify-content-center" style="background-color: white; border-radius: 50%; cursor: pointer;"></i></span>
+                             <div  class="d-flex flex-column align-items-center justify-content-center fs-4">
+                                 <div id="upload-icon-div">
+                                         <i id="upload-icon" class="bi bi-images p-2 d-flex align-items-center justify-content-center" style="border-radius: 50%; background-color: #e9ecef; cursor: pointer;"></i>
+                                 </div>
+                                 <input id="select-photo" type="file" multiple="multiple" style="display:none;" >
+                                 <span id="span-text" class="f-6 text-black">Add photos/videos</span>
+                             </div>
+                         </div>
+                    </div>
+                    <div id="tag-friend" style="display:none">
+                        <div class="d-flex flex-column">
+                            <i id="back-btn"  class="bi bi-arrow-left" style="-webkit-text-stroke-width: 1px; cursor: pointer;"> Back</i>
+                            <label class="mt-2 mb-2" for="" style="font-weight: 500; font-size: 18px;">Tag friends:</label>
+                            <select id="friends" class="form-select" aria-label="Default select example" multiple="multiple" placeholder="Please select your friends">             
+         
+                                <% for(let i=0;i<friends_details.length;i++){ %>
+                                   
+                                    <option value="<%=friends_details[i].friend_id%>"><%= friends_details[i].name %></option>
+                               <% } %>    
+                            </select>
+                            <span class="mt-3" style="font-weight: 500; color: gray;">Suggestions</span>
+                            <div style="height: 200px; overflow-y: scroll;">
+                            <% for(let i=0;i<friends_details.length;i++){ %>
+                                    <div class="d-flex mt-2">
+                                        <img src="<%= friends_details[i].image ? friends_details[i].image : '/images/profile-pic.png' %>" width="30px" height="30px" style="object-fit: cover; border-radius: 50%;" alt="">
+                                        <span class="ms-2" style="font-weight: 500;"><%= friends_details[i].name %></span>
+                                    </div>
+                                    <% } %>
+                                </div>
+                        </div>
+                    </div>
+                        <div id="icons-div" style="display: block;">
+    
+                            <div   class="mt-5 d-flex align-items-center justify-content-between rounded p-3 " style="border: 1px solid lightgray;">
+                                <span style="font-weight: bold;">Add to your post</span>
+                                <div class="d-flex align-items-center">
+                                    <i id="image-section" class="bi bi-images text-success fs-4 me-3 image-icon" style="cursor: pointer;"></i>
+                                    <i id="tag-icon" class="bi bi-person-fill text-info me-2 fs-3 person-icon" style="cursor: pointer;"></i>
+                                    <i class="bi bi-geo-alt-fill text-danger fs-4 location-icon" style="cursor: pointer;"></i>
+                                    
+                                </div>
+                            
+                            </div>
+                        </div>
+                   
+                
+                    
+                        <button id="post-btn" type="submit" class="btn w-100 mt-3" disabled style="background-color: #e9ecef; border: none;position: sticky; display: block;">Post</button>
+                  
+                    
+                    </form>
+                    </div>
+
+                </div>
+                
+              </div>
+            </div>
+            </div>
+                <div class="modal" id="view-more" tabindex="-1">
+                    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable" id="view-more-modal">
+                        <div class="modal-content" id="content-height">
+                    
+                            <div  class="modal-body">
+                                <div id="modal-post-section">
+                                    
+                                </div>
+                            </div>
+                        
+                        </div>
+                        
+                    </div>
+                </div>
+                <div id="photos-modal" class="modal" tabindex="-1" style="background-color: rgba(0, 0, 0, 0.4);">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                      <div class="modal-content bg-dark">
+                          <div class="d-flex justify-content-end modal-header" style="border: 0;">
+                              <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close" ></button>
+                          </div>
+                       
+                                 
+                          
+                          <div class="modal-body">
+                            <div id="photos-section">
+
+                            </div>
+                        </div>
+                       
+                      </div>
+                    </div>
+                  </div>
+                 
+       
+        <%- include('partials/scripts.ejs') %>
+        <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/js/multi-select-tag.js"></script>
+        <script src="/js/home.js"></script>
+        <script src="/js/posts.js"></script>
+        <script src="/js/notification.js"></script>
+    </body>
+
+</body>
+</html>
